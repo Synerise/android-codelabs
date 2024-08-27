@@ -1,0 +1,32 @@
+package com.synerise.integration.app.product.storage.model
+
+data class ProductDataModel(
+    val brand: String,
+    val category: String,
+    val color: String,
+    val color_modifier: String,
+    val cpu: String,
+    val deleted: String,
+    val display: String,
+    val finish: String,
+    val image: String,
+    val is_salable: String,
+    val itemId: String,
+    val item_key: String,
+    val material: String,
+    val memory: String,
+    val name: String,
+    val omnibus_price: String,
+    val price: String,
+    val productUrl: String,
+    val product_subtype: String,
+    val scent: String,
+    val season: String,
+    val size: String,
+    val sku: String,
+    val special_price: String,
+    val stock_status: String,
+    val style: String,
+    val visibility: String,
+    val year: String
+)

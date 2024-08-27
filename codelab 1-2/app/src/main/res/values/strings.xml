@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Synerise Android Integration App</string>
+    <string name="home_navbar_label">Start</string>
+    <string name="products_navbar_label">Products</string>
+    <string name="fav_navbar_label">Fav</string>
+    <string name="cart_navbar_label">Cart</string>
+    <string name="account_navbar_label">Account</string>
+    <string name="default_notification_channel_id">IntegrationLabDefaultChannelId</string>
+</resources>

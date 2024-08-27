@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "952687283491",
+    "project_id": "synerise-integration-apps",
+    "storage_bucket": "synerise-integration-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952687283491:android:ad462b55652ea0c7e35096",
+        "android_client_info": {
+          "package_name": "com.synerise.integration.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdcOlWiVDzL-XSnHMur2hp3ZXP41eKqRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
