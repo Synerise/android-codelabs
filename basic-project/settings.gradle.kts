@@ -15,7 +15,6 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         maven(url = "https://jitpack.io")
-        maven(url =  "https://pkgs.dev.azure.com/Synerise/AndroidSDK/_packaging/prod/maven/v1")
         google()
         mavenCentral()
     }
