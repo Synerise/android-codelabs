@@ -22,10 +22,6 @@ fun HomeNavigationGraph() {
     val navHostController = rememberNavController()
     val sharedViewModel: HomeContainerViewModel = hiltViewModel()
 
-    navHostController.addOnDestinationChangedListener { _, destination, _ ->
-        sharedViewModel.sendScreenVisitEvent(destination.route)
-    }
-
     NavHost(
         navController = navHostController,
         route = Graph.HOME,
