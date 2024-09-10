@@ -40,10 +40,10 @@ class SyneriseRepository @Inject constructor(private val context: Context) {
     fun sendCustomAddToFavouritesProductEvent(product: Product) {
         val event = CustomEvent(
             "favourites.change",
-            "fav",
+            "Item added to favourites",
             TrackerParams.Builder()
                 .add("sku", product.sku)
-                .add("isLiked", product.isFavourite)
+                .add("isFavourite", product.isFavourite)
                 .build()
         )
 
