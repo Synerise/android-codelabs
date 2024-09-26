@@ -37,14 +37,10 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.SubcomposeAsyncImage
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.rememberPermissionState
 import com.synerise.integration.app.LocalUserState
-import com.synerise.integration.app.main.permissions.NotificationPermission
 import com.synerise.integration.app.product.storage.model.Product
 import com.synerise.integration.app.products.ProductItem
 
-@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
@@ -53,16 +49,8 @@ fun HomeScreen(
 ) {
     val userState = LocalUserState.current
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-    val permissionState =
-        rememberPermissionState(permission = Manifest.permission.POST_NOTIFICATIONS)
 
-    LaunchedEffect(true) {
-        permissionState.launchPermissionRequest()
-    }
 
-    NotificationPermission(permissionState = permissionState,
-        onPermissionGranted = { /* update permissions */ },
-        onPermissionRefused = { /* update permissions */ })
     LazyVerticalGrid(
         modifier = Modifier
             .padding(
