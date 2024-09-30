@@ -81,7 +81,6 @@ dependencies {
     implementation(libs.ratingbar)
     implementation(libs.gson)
     implementation(libs.androidx.lifecycle.runtime.compose)
-    implementation(libs.accompanist.permissions)
     kapt(libs.hiltCompiler)
     kapt(libs.room.compiler)
     implementation(libs.syneriseSdk)
