@@ -92,7 +92,6 @@ fun SignUpScreen(
 
     LaunchedEffect(uiState.isSignUpSuccessful) {
         if (uiState.isSignUpSuccessful) {
-            userState.signIn(email)
             onAccountCreate()
         }
     }

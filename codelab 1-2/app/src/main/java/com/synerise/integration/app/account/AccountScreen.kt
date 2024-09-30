@@ -99,8 +99,7 @@ fun AccountScreen(paddingValues: PaddingValues,
                 .height(50.dp),
             shape = RoundedCornerShape(70.dp),
             onClick = {
-                viewModel.signOut()
-                userState.signOut() },
+                viewModel.signOut() },
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
         ) {
             Text(
