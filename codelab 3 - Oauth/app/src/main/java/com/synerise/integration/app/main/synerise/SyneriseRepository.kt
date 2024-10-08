@@ -11,6 +11,7 @@ import com.synerise.sdk.client.Client
 import com.synerise.sdk.client.model.ClientIdentityProvider
 import com.synerise.sdk.client.model.client.RegisterClient
 import com.synerise.sdk.core.Synerise
+import com.synerise.sdk.core.types.enums.ClientSignOutMode
 import com.synerise.sdk.core.types.enums.HostApplicationType
 import com.synerise.sdk.error.ApiError
 import com.synerise.sdk.event.Tracker
@@ -123,7 +124,7 @@ class SyneriseRepository @Inject constructor(private val context: Context) {
     }.flowOn(Dispatchers.IO)
 
     fun signOut() {
-        Client.signOut()
+        Client.signOut(ClientSignOutMode.SIGN_OUT, false)
         auth.signOut()
     }
 
