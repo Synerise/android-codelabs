@@ -124,7 +124,10 @@ class SyneriseRepository @Inject constructor(private val context: Context) {
     }.flowOn(Dispatchers.IO)
 
     fun signOut() {
-        Client.signOut(ClientSignOutMode.SIGN_OUT, false)
+        Client.signOut(ClientSignOutMode.SIGN_OUT, true)
+            .execute(
+                { Timber.d("Sign out successful") },
+                { apiError -> Timber.d("Error while sign out: $apiError") })
         auth.signOut()
     }
 
