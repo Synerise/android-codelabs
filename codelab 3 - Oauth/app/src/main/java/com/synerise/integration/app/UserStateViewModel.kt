@@ -16,7 +16,6 @@ class UserStateViewModel @Inject constructor(
     var isLoggedIn by mutableStateOf(false)
     var userLogin by mutableStateOf("")
 
-
     init {
         isLoggedIn = sessionManager.isUserLoggedIn()
     }

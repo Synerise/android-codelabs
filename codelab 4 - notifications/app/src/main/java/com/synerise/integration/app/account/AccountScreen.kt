@@ -28,8 +28,10 @@ import com.synerise.integration.app.login.LoginViewModel
 import com.synerise.integration.app.ui.theme.Gray
 
 @Composable
-fun AccountScreen(paddingValues: PaddingValues,
-                  viewModel: AccountViewModel = hiltViewModel()) {
+fun AccountScreen(
+    paddingValues: PaddingValues,
+    viewModel: AccountViewModel = hiltViewModel()
+) {
     val userState = LocalUserState.current
     Column(
         modifier = Modifier
@@ -100,7 +102,8 @@ fun AccountScreen(paddingValues: PaddingValues,
             shape = RoundedCornerShape(70.dp),
             onClick = {
                 viewModel.signOut()
-                userState.signOut() },
+                userState.signOut()
+            },
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
         ) {
             Text(

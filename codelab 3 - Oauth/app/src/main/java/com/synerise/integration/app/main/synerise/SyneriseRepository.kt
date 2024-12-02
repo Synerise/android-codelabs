@@ -18,6 +18,7 @@ import com.synerise.sdk.event.Tracker
 import com.synerise.sdk.event.TrackerParams
 import com.synerise.sdk.event.model.CustomEvent
 import com.synerise.sdk.event.model.interaction.VisitedScreenEvent
+import com.synerise.sdk.event.model.session.LoggedOutEvent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -64,6 +65,11 @@ class SyneriseRepository @Inject constructor(private val context: Context) {
                 .build()
         )
 
+        Tracker.send(event)
+    }
+
+    fun sendClientLogoutEvent() {
+        val event = LoggedOutEvent("client logged out", null)
         Tracker.send(event)
     }
 
@@ -124,11 +130,17 @@ class SyneriseRepository @Inject constructor(private val context: Context) {
     }.flowOn(Dispatchers.IO)
 
     fun signOut() {
-        Client.signOut(ClientSignOutMode.SIGN_OUT, true)
+        Client.signOut(ClientSignOutMode.SIGN_OUT, false)
             .execute(
-                { Timber.d("Sign out successful") },
-                { apiError -> Timber.d("Error while sign out: $apiError") })
-        auth.signOut()
+                {
+                    Timber.d("Sign out successful")
+                    sendClientLogoutEvent()
+                    auth.signOut()
+                },
+                { apiError ->
+                    val syneriseApiError = apiError as ApiError
+                    Timber.d("Error while sign out: ${syneriseApiError.errorBody?.message}")
+                })
     }
 
     fun isUserSignedIn(): Boolean {
